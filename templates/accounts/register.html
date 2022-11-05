@@ -1,0 +1,132 @@
+{%extends 'base.html'%}
+{% load countries %}
+{%block content%}
+<div class="row">
+    <div class="col-md-12">
+      <!--Alerts-->
+   
+    
+      <form action="{% url 'register'%}" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <h1>Register </h1>
+        
+        <fieldset>
+     
+          <legend><span class="number">1</span>Register</legend>
+        
+          <label for="name">Full Name:</label>
+          <input type="text" id="surname" name="last_name" placeholder="Surname">
+          <input type="text" id="firstname" name="first_name" placeholder="Firstname">
+        
+          <label for="email">Email:</label>
+          <input type="email" name="user_email" id="mail" >
+       
+          <select id="selectCountry" name="selectCountry">
+{% for country in countries %}
+    <option value="{{ country.code }}">{{ country.name }}</option>
+{% endfor %}
+        </select>
+
+          <input type="tel" name="phone" id="phone"></fieldset><br/>
+
+          <label for="bio">Residence:</label>
+          <textarea id="address" name="user_address"></textarea>
+         
+<!-- 
+          <label>Age:</label>
+          <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
+          <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">Over 13</label>
+           -->
+        </fieldset>
+        <fieldset>  
+        
+          <legend><span class="number">2</span> Your Profile</legend>
+          <h5>Cover Letter</h5>
+          <canvas id="canvas"></canvas>
+          <input type="file" id="fileInput" name="letter" multiple="false" accept="image/*" onchange="upload()">
+          
+
+          <h5>Upload CV</h5>
+          <canvas id="canvas"></canvas>
+          <input type="file" id="fileInput" name="cv" multiple="false" accept="image/*" onchange="upload()">
+          
+         <!-- <label for="bio">Bio:</label>
+          <textarea id="bio" name="user_bio"></textarea>
+         -->
+       
+        
+         <label for="role">
+            Which role are you applying for(Select one):</label>
+          <select id="job" name="role">
+            <optgroup label="Role">
+              <option value="gis" name="gis">GIS and Remote sensing Expert</option>
+              <option value="se" name="se">Software Engineer</option>
+              <option value="da" name="da">Data Analyst</option>
+            </optgroup>
+          </select>
+
+            <label for="bio">Which role are you applying for (select one)</label>
+          <textarea id="bio" name="question1"></textarea>
+        
+            <label for="bio">What inspired you to pursue a career in your field?</label>
+          <textarea id="bio" name="question2"></textarea>
+        
+            <label for="bio">Why have you decided to apply for this program</label>
+          <textarea id="bio" name="question3"></textarea>
+        
+            <label for="bio">What are your thoughts about the future of space exploration in Nigeria</label>
+          <textarea id="bio" name="question4"></textarea>
+        
+            <label for="bio">What recent innovative concepts in the inductry do you think are significant to address"></label>
+          <textarea id="bio" name="question5"></textarea>
+        
+            <label for="bio">Can you briefly tell us about your favorite project worked on so far?</label>
+          <textarea id="bio" name="question6"></textarea>
+        
+            <label for="bio">How much experience do you have in leading or collaborating in projects</label>
+          <textarea id="bio" name="question7"></textarea>
+        
+            <label for="bio">How do you make sure you meet important deadlines</label>
+          <textarea id="bio" name="question8"></textarea>
+        
+            <label for="bio">According to you, what is more crucial completing a task  on time, or doing it in the right way?</label>
+          <textarea id="bio" name="question9"></textarea>
+        
+            <label for="bio">How much experience do you have in leading or collaborating in projects</label>
+          <textarea id="bio" name="question10"></textarea>
+        
+            <label for="bio">How do you handle work pressure</label>
+          <textarea id="bio" name="question11"></textarea>
+        
+            <label for="bio">What makes you great team player</label>
+          <textarea id="bio" name="question12"></textarea>
+        
+            <label for="bio">How do you influence people and inspire actions</label>
+          <textarea id="bio" name="question13"></textarea>
+        
+            <label for="bio">According to you, what other skills is needed for the role?</label>
+          <textarea id="bio" name="question14"></textarea>
+        
+            <label for="bio">Can you tell u smore about your accomplishments in your field?</label>
+          <textarea id="bio" name="question15"></textarea>
+        
+         
+        
+          
+         <label>How did you Hear about this program:</label>
+          <input type="checkbox" id="facebook" value="hear_facebook" name="about"><label class="light" for="facebook">Facebook</label><br>
+          <input type="checkbox" id="instagram" value="hear_instagram" name="about"><label class="light" for="instagram">Instagram</label><br>
+          <input type="checkbox" id="youtube" value="hear_youtube" name="about"><label class="light" for="youtube">Youtube</label> <br>
+          <input type="checkbox" id="twitter" value="hear_twitter" name="about"><label class="light" for="twitter">Twitter</label> <br>
+          <input type="checkbox" id="radio" value="hear_radio" name="about"><label class="light" for="radio">Radio</label> <br>
+          <input type="checkbox" id="friend" value="hear_friend" name="about"><label class="light" for="friend">Through a friend</label> <br>
+          <label for="bio">Why should we consider you for this program</label>
+          <textarea id="bio" name="consider"></textarea>
+         </fieldset>
+       
+        <button type="submit" name="register_form">Register</button>
+        
+       </form>
+        </div>
+      </div>
+{%endblock%}
