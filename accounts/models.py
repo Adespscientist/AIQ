@@ -3,9 +3,9 @@ from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 Roles = (
-    ('gis', 'GIS and Remote sensing Expert'), 
-    ('se', 'Software Engineer'),
-    ('da', 'Data Analyst')
+    ('GIS and Remote sensing Expert', 'GIS and Remote sensing Expert'), 
+    ('Software Engineer', 'Software Engineer'),
+    ('Data Analyst', 'Data Analyst')
 )
 About=(
     ('facebook', 'Facebook'),
@@ -22,8 +22,8 @@ class RegisterForm(models.Model):
     phone = PhoneNumberField(max_length=100, default='')
     countries=CountryField(max_length=100, default='')
     address=models.CharField(max_length=100, default='')
-    letter=models.FileField( default='')
-    cv=models.FileField( default='', blank=True)
+    letter=models.FileField( default='', blank=True, upload_to='letters/%Y/%m/%d.{{first_name}}')
+    cv=models.FileField( default='', blank=True, upload_to='documents/%Y/%m/%d')
     role=models.CharField(max_length=100, choices=Roles, default='', null=True)
     about=models.CharField(max_length=200, choices=About, default='', null=True)
     question1=models.TextField(default='')

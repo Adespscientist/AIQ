@@ -59,7 +59,7 @@ var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long
         validMsg.classList.add("hide");
     };
  $(document).ready(function () {
-        $("#phone").val("+234555-555");
+        $("#phone").val("+23408123456778");
     });
 
     var select = document.getElementById("selectCountry");
@@ -99,15 +99,3 @@ document.addEventListener ('DOMContentLoaded', function() {
 //     else alert('You chose ' + event.target.value + '. Yay, grab a beer!');
 // }
 
-function upload() {
-    var f = document.getElementById('fileInput');
-    var img = new SimpleImage(f);
-    var canvas = document.getElementById('canvas');
-    
-    img.drawTo(canvas);
-  }
-
-  
-  setTimeout(function(){
-    $('#message').fadeOut('slow');
-  }, 3000);

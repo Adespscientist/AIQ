@@ -11,7 +11,7 @@
         <h1>Register </h1>
         
         <fieldset>
-     
+     {%include 'partials/_alerts.html'%}
           <legend><span class="number">1</span>Register</legend>
         
           <label for="name">Full Name:</label>
@@ -19,7 +19,7 @@
           <input type="text" id="firstname" name="first_name" placeholder="Firstname">
         
           <label for="email">Email:</label>
-          <input type="email" name="user_email" id="mail" >
+          <input type="email" name="user_email" id="mail" placeholder="E-mail" >
        
           <select id="selectCountry" name="selectCountry">
 {% for country in countries %}
@@ -30,7 +30,7 @@
           <input type="tel" name="phone" id="phone"></fieldset><br/>
 
           <label for="bio">Residence:</label>
-          <textarea id="address" name="user_address"></textarea>
+          <textarea id="address" name="user_address" placeholder="Residence"></textarea>
          
 <!-- 
           <label>Age:</label>
@@ -41,19 +41,19 @@
         <fieldset>  
         
           <legend><span class="number">2</span> Your Profile</legend>
-          <h5>Cover Letter</h5>
-          <canvas id="canvas"></canvas>
-          <input type="file" id="fileInput" name="letter" multiple="false" accept="image/*" onchange="upload()">
+          <p>Cover Letter</p>
           
+          <input type="file" id="fileInput" name="letter" multiple="false" accept="image/*" onchange="upload()">
+          <br>
 
-          <h5>Upload CV</h5>
-          <canvas id="canvas"></canvas>
+          <p>Upload CV</p>
+         
           <input type="file" id="fileInput" name="cv" multiple="false" accept="image/*" onchange="upload()">
           
          <!-- <label for="bio">Bio:</label>
           <textarea id="bio" name="user_bio"></textarea>
          -->
-       
+        <br>
         
          <label for="role">
             Which role are you applying for(Select one):</label>
@@ -65,28 +65,29 @@
             </optgroup>
           </select>
 
-            <label for="bio">Which role are you applying for (select one)</label>
+            <label for="bio">Kindly tell us more about your professional background?
+            </label>
           <textarea id="bio" name="question1"></textarea>
         
             <label for="bio">What inspired you to pursue a career in your field?</label>
           <textarea id="bio" name="question2"></textarea>
         
-            <label for="bio">Why have you decided to apply for this program</label>
+            <label for="bio">Why have you decided to apply for this program?</label>
           <textarea id="bio" name="question3"></textarea>
         
-            <label for="bio">What are your thoughts about the future of space exploration in Nigeria</label>
+            <label for="bio">What are your thoughts about the future of space exploration in Nigeria?</label>
           <textarea id="bio" name="question4"></textarea>
         
-            <label for="bio">What recent innovative concepts in the inductry do you think are significant to address"></label>
+            <label for="bio">What recent innovative concepts in the inductry do you think are significant to address?"></label>
           <textarea id="bio" name="question5"></textarea>
         
             <label for="bio">Can you briefly tell us about your favorite project worked on so far?</label>
           <textarea id="bio" name="question6"></textarea>
         
-            <label for="bio">How much experience do you have in leading or collaborating in projects</label>
+            <label for="bio">How much experience do you have in leading or collaborating in projects?</label>
           <textarea id="bio" name="question7"></textarea>
         
-            <label for="bio">How do you make sure you meet important deadlines</label>
+            <label for="bio">How do you make sure you meet important deadlines?</label>
           <textarea id="bio" name="question8"></textarea>
         
             <label for="bio">According to you, what is more crucial completing a task  on time, or doing it in the right way?</label>
